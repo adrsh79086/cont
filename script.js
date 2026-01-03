@@ -187,7 +187,7 @@ backToTopButton.addEventListener('click', () => {
 
 // Update animation observer to include new elements
 document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.service-card, .timeline-item, .portfolio-stat, .testimonial-card, .certificate-item');
+    const animateElements = document.querySelectorAll('.service-card, .timeline-item, .portfolio-stat, .testimonial-card, .certificate-item, .project-card');
     
     animateElements.forEach(el => {
         el.style.opacity = '0';

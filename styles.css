@@ -287,6 +287,21 @@ section {
 
 .about-image {
     height: 400px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.company-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.company-photo:hover {
+    transform: scale(1.05);
 }
 
 .image-placeholder {
@@ -360,6 +375,180 @@ section {
     left: 0;
     color: var(--primary-color);
     font-weight: 700;
+}
+
+/* Projects Section */
+.projects {
+    background: var(--white);
+}
+
+.projects-category {
+    margin-bottom: 4rem;
+}
+
+.projects-category:last-child {
+    margin-bottom: 0;
+}
+
+.category-title {
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+}
+
+.status-badge {
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-badge.ongoing {
+    background: #dbeafe;
+    color: var(--primary-color);
+}
+
+.status-badge.completed {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--white);
+    border: 2px solid #e5e7eb;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.project-logo {
+    background: var(--bg-light);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 200px;
+    border-right: 2px solid #e5e7eb;
+    flex-shrink: 0;
+}
+
+.project-logo img {
+    max-width: 100%;
+    max-height: 120px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(0);
+    transition: filter 0.3s ease;
+}
+
+.project-card:hover .project-logo img {
+    filter: grayscale(0);
+}
+
+.logo-placeholder {
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 10px;
+}
+
+.project-content {
+    padding: 2rem;
+    flex: 1;
+}
+
+.project-content h3 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.project-type {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.project-location {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.project-description {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.project-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-indicator.ongoing {
+    background: var(--primary-color);
+    animation: pulse-dot 2s infinite;
+}
+
+.status-indicator.completed {
+    background: #059669;
+}
+
+@keyframes pulse-dot {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
 }
 
 /* Portfolio Section */
@@ -928,6 +1117,16 @@ section {
         grid-template-columns: 1fr;
     }
 
+    .about-image {
+        order: -1;
+        margin-bottom: 2rem;
+    }
+
+    .about-image {
+        order: -1;
+        margin-bottom: 2rem;
+    }
+
     .timeline-item {
         grid-template-columns: 1fr;
         padding-left: 1rem;
@@ -946,8 +1145,41 @@ section {
     }
 
     .testimonials-grid,
-    .certificates-grid {
+    .certificates-grid,
+    .projects-grid {
         grid-template-columns: 1fr;
+    }
+
+    .category-title {
+        font-size: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .project-card {
+        flex-direction: column;
+    }
+
+    .project-logo {
+        min-width: 100%;
+        max-width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #e5e7eb;
+        min-height: 150px;
+        order: 1;
+    }
+
+    .project-content {
+        order: 2;
+    }
+
+    .project-logo img {
+        max-height: 100px;
+    }
+
+    .projects {
+        clear: both;
+        position: relative;
+        z-index: 1;
     }
 
     .whatsapp-float {
